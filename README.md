@@ -92,6 +92,16 @@ på flera rader
 
 [[1,2,3],["a","b","c","d"]]
 
+#Tupler: listor som inte går att ändra
+
+(1,2,3)
+
+#En tupel med ett element måste ha ett komma-tecken efter elementet, annars evalueras det bara som ett simpelt värde
+
+("element",)#tupel som innehåller strängen "element"
+
+("element") #strängen "element"
+
 #Dictionaries (ordböcker)
 
 #Jämför en nyckel (en sträng eller ett nummer) som du ger in mot en lista av nycklar, och returnerar värdet.
@@ -251,6 +261,12 @@ Kroppen av ett block är indenterat (flyttat in till höger på sidan)
 
 
 
+# If
+
+En if-sats är ett flödeskontroll-block, som låter programmet välja vad som ska hända näst.
+
+Hur programmet väljer
+
 
 ```python
 #If-block
@@ -261,7 +277,36 @@ a = 3
 if a > 2:
     print("Hej!")
     
-#If-else-sats
+#Vi kan även genast använda sanningsvärden som vi tidigare beräknat
+
+solen_skiner = True
+
+if solen_skiner:
+    print("solen skiner!")
+
+
+fyra_är_jämnt = 4 % 2 == 0
+
+if fyra_är_jämnt:
+    print("Halleluja, fyra är ett jämnt tal!")
+```
+
+    Hej!
+    solen skiner!
+    Halleluja, fyra är ett jämnt tal!
+    
+
+# Else
+
+```else``` och ```elif``` kollas efter att ```if```-villkoret har misslyckats (dvs. villkoret har haft ett falskt värde)
+
+```elif``` kollar dessutom ett villkor till, medan else körs oavsett 
+
+det går att lägga hur många som helst elif efter varann
+
+
+```python
+#If-elif-else-sats
 
 a = 0
 
@@ -273,7 +318,6 @@ else:
     print("Hejdå")
 ```
 
-    Hej!
     Hejdå
     
 
@@ -446,6 +490,24 @@ for i in range(1,10):
     9
     
 
+# While-else
+
+Vi kan, som med ```if```, lägga en else efter en while-sats.
+
+Denna kör då villkoret inte är sant, helt som en if-sats.
+
+I praktiken betyder detta att else-satsen körs efter att resten av loopen har körts.
+
+
+```python
+a = 1
+while a < 4:
+    a+=1
+    print("running")
+else:
+    print("slut")
+```
+
 
 ```python
 #Funktionsblock
@@ -480,3 +542,131 @@ svar = funktions_namn(3,4) #Sparar returvärdet i svar
 #Svar kommer att innehålla 7
 
 ```
+
+
+```python
+
+```
+
+    running
+    running
+    running
+    slut
+    
+
+# Klasser och objekt
+
+Ett objekt är en samling av variabler och funktioner som kan hämtas med hjälp av .-operatorn.
+
+Objekt skapas genom att initialisera en klass. En klass är alltså en bottenplan för ett objekt.
+Då ett objekt initialiseras så kopieras klassen in i objektet och sedan körs ```__init__```-funktionen för klassen med objektet som ```self```
+
+## Klass-deklaration
+
+En klass är ett block som alla andra
+
+
+```python
+#nyckelordet class
+#|    klassens namn 
+#|    |
+#|    |  kolon!
+#|    |  |
+class Dog:#<-kolon!
+    
+    def __init__(self,name):
+        self.name = name
+        
+    def bark(self):
+        print(self.name, "says: Woof!")
+    
+    def info():
+        print("a dog class")
+```
+
+En klass är lite som ett eget program som du kan köra när du vill. Ett eget "namespace" som det kallas.
+
+Det betyder att alla variabler, funktioner, och andra programmeringsobjekt som har deklarerats inne i Dog finns tillgängliga, men de ligger alltså inne i ```Dog``` namnrummet.
+
+Alla variabler, funktioner, etc. som vi vanligtvis kallar på ligger i programmeringsfilens eget namnrum, för dem behöver vi inte specifiera namnrum, utan de kan kallas direkt.
+
+För att komma åt variabler i andra namnrum använder vi ```.```-operatorn:
+
+    <namnrum>.<namn>
+    
+Dvs. för att koma åt ```info```-funktionen i ```Dog``` kallar vi på ```Dog```**.**```info()```
+
+
+```python
+Dog.info()
+```
+
+    a dog class
+    
+
+Ett objekt är en kopia av Dog-namnrummet, vi skapar objektet genom att *kalla* på klassen Dog, dvs. vi skriver ```Dog()```. När vi kallar på Dog, körs ```Dog.__init__()``` med argumenten:
+ - ```self```=objektet vi skapar
+ - resten av argumenten fylls i av vad vi ger in i ```Dog()```
+
+
+```python
+dog=Dog("Kalle")
+```
+
+När vi kallar på funktioner i ett objekts namnrum, lägger python alltid __objektet__ __själv__ in i funktionens första argument, därför brukar det första argumentet kallas ```self```.
+
+
+```python
+#Nu kan vi kalla på dog.bark()
+dog.bark()
+```
+
+    Kalle says: Woof!
+    
+
+P.g.a. detta kan vi inne i funktionerna komma åt information som är sparat på objektet, i detta fall hundens namn.
+
+    class Dog:
+        ...
+        def bark(self):
+            print(self.name, "says: Woof!") <-- self.name = namnet vi sparade när vi kallade på Dog(), alltså "Kalle"
+        ...
+        
+Vi kan också komma åt namnet direkt från dog.
+
+
+```python
+dog.name
+```
+
+
+
+
+    'Kalle'
+
+
+
+Men märk att det inte går att kalla på funktioner som inte har några argument, eftersom python alltid tvingar in objektet själv som första argumentet.
+
+
+```python
+dog.info()#TypeError
+```
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-21-65ed32909515> in <module>()
+    ----> 1 dog.info()#TypeError
+    
+
+    TypeError: info() takes 0 positional arguments but 1 was given
+
+
+# Ärvning
+
+Det går att ärva klasser för att skapa mer nyanserat beteende i program.
+
+
