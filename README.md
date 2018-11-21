@@ -667,6 +667,40 @@ dog.info()#TypeError
 
 # Ärvning
 
-Det går att ärva klasser för att skapa mer nyanserat beteende i program.
+Om det redan finns en klass som gör 90% av vad du vill åstadkomma, men du skulle vilja lägga till lite funktionalitet, hur skall man göra då? Vi kan ärva (eng. inherit) klassen, alltså lägga till nya bitar till den existerande klassen.
+
+När en klass ärver en annan klass kallas den nya klassen en subklass till den existerande klassen. Vice versa kallas den gamla klassen en superklass till den nya klassen.
+
+Ärvning betyder att vi skapar en klass som utökar en annan klass. Dvs. klassen innehåller alla variabler och funktioner som superklassen har + alla variabler deklarerade i klassen själv. Vi kan **skriva över** variabler och funktioner från superklassen genom att omdefiniera dem. I följande exempel skriver vi över ```__init__```-funktionen.
+
+Ärvning sker genom att ge superklassen in som argument till klassen.
+
+    class Subklass(Superklass):
+
+Detta betyder också att vi kan använda funktionalitet från superklassen i vår klass, såsom i följande exempel.
 
 
+```python
+#             ärver Dog-klassen
+#             |
+class Collie(Dog):
+    def __init__(self):
+        Dog.__init__(self,"Lassie") #Vi bestämmer att alla Collies har namnet Lassie
+#       |
+#       Vi kan t.ex. använda __init__ från Dog för att förenkla klassen
+```
+
+
+```python
+collie = Collie()
+collie.bark()
+```
+
+    Lassie says: Woof!
+    
+
+```Collie``` är en subklass till ```Dog```, som skiljer sig från ```Dog``` i att vi har hårdkodat namnet "Lassie" till den, annars fungerar ```Collie``` exakt som ```Dog```.
+
+Eftersom vi skrev om ```__init__``` för ```Collie``` så att den endast tar in ```self```-argumentet kallar vi på ```Collie``` utan argument.
+
+Inne i ```__init__``` kallar vi på ```Dog.__init__``` för att skapa en Dog som fungerar. Märk att vi nu måste ge in ```self``` som ett argument, eftersom vi kallar på ```__init__``` explicit, som vilken som helst annan funktion (explicit = uttryckligen, det är vi som kallar på ```__init__``` och inte nån magisk bakgrundsmekanism). 
