@@ -11,11 +11,10 @@ Vi initialiserar (skapar) variabler genom tilldelningsoperatorn =
 
 ```python
 #Tilldelningsoperatorn =
-#Tilldelar (sparar) vänster sida in i variabeln (behållaren) på höger sida
+#Tilldelar (sparar) värdet på höger sida in i variabeln (behållaren) på vänster sida
 #Om variabeln inte finns, skapas den nu
 
-#Höger sida kan vara variabel eller värde
-
+#Värdet på höger sida kan vara variabel eller ett bokstavligt värde
 
 #Ex.
 
