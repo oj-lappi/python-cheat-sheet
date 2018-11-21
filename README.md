@@ -684,6 +684,9 @@ Detta betyder också att vi kan använda funktionalitet från superklassen i vå
 #             ärver Dog-klassen
 #             |
 class Collie(Dog):
+
+#       När vi omdefinierar __init__ i Collie skriver vi över den från Dog ärvda __init__-funktionen med den nya funktionen.
+#       |
     def __init__(self):
         Dog.__init__(self,"Lassie") #Vi bestämmer att alla Collies har namnet Lassie
 #       |
