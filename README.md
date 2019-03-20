@@ -9,24 +9,26 @@ Vi initialiserar (skapar) variabler genom tilldelningsoperatorn =
 
 
 
+# Tilldelningsoperatorn =
+# Tilldelar (sparar) värdet på höger sida in i variabeln (behållaren) på vänster sida
+# Om variabeln inte finns, skapas den nu
+
+# Värdet på höger sida kan vara variabel eller ett bokstavligt värde
+
+# Ex.
+
 ```python
-#Tilldelningsoperatorn =
-#Tilldelar (sparar) värdet på höger sida in i variabeln (behållaren) på vänster sida
-#Om variabeln inte finns, skapas den nu
-
-#Värdet på höger sida kan vara variabel eller ett bokstavligt värde
-
-#Ex.
-
 tal = 1
 
 namn = "kalle"
 
 inköpslista = ["äppel","banan"]
+```
+# Om vi vill skapa en tom variabel använder vi ett passande "tomt" värde på höger sida
 
-#Om vi vill skapa en tom variabel använder vi ett passande "tomt" värde på höger sida
+# Ex
 
-#Ex
+```python
 
 tal = 0        #0 kan vara passande "tomt" värde för tal
 
@@ -35,41 +37,41 @@ efternamn = "" #Tom sträng (tom text) är passande för textdata
 objekt = None  #Specialvärde som python-skaparna har bestämt att betyder "inget"
 
 todo_list = [] # Tom lista
-
-
 ```
 
 
+# Datatyper
+
+# Det finns några olika typer av data i python
+# Datatypen bestämms av python enligt hur variabeln ser ut
+
+# Heltal
+
 ```python
-#Datatyper
-
-#Det finns några olika typer av data i python
-#Datatypen bestämms av python enligt hur variabeln ser ut
-
-#Heltal
 1
 
 4
 
 5555
-
-#Decimaltal
-
+```
+# Decimaltal
+```python
 0.3
 
 4.5
 
 3.14
-
-#Sanningsvärden, finns bara två
-
+```
+# Sanningsvärden, finns bara två
+```python
 True
 
 False
+```
 
+# Strängar = listor av bokstäver
 
-#Strängar = listor av bokstäver
-
+```python
 "Kalle"
 
 'Tjorven'
@@ -78,37 +80,39 @@ False
 Lång text
 på flera rader
 """
-
-#Listor av saker
-
+```
+# Listor av saker
+```python
 [1,2,3,4]
 
 ["Hej","Godda","Gokväll"]
 
 [1,"äppel",3.14,"hej"]
-
-#Kan t.o.m. lägga listor in i listor
-
+```
+# Kan t.o.m. lägga listor in i listor
+```python
 [[1,2,3],["a","b","c","d"]]
-
-#Tupler: listor som inte går att ändra
-
+```
+# Tupler: listor som inte går att ändra
+```python
 (1,2,3)
+```
 
-#En tupel med ett element måste ha ett komma-tecken efter elementet, annars evalueras det bara som ett simpelt värde
-
+En tupel med ett element måste ha ett komma-tecken efter elementet, annars evalueras det bara som ett simpelt värde
+```python
 ("element",)#tupel som innehåller strängen "element"
 
 ("element") #strängen "element"
+```
+# Dictionaries (ordböcker)
 
-#Dictionaries (ordböcker)
+Jämför en nyckel (en sträng eller ett nummer) som du ger in mot en lista av nycklar, och returnerar värdet.
 
-#Jämför en nyckel (en sträng eller ett nummer) som du ger in mot en lista av nycklar, och returnerar värdet.
+Deklareras somkommaseparerade nyckel:värde innanför {}
 
-#Deklareras somkommaseparerade nyckel:värde innanför {}
+Exempel:
 
-#Exempel:
-
+```python
 primtal = {
     1:False,
     2:True,
@@ -153,25 +157,26 @@ ställen={
         "Länder":["Förenta staterna","Kanada","Mexico","Kuba","Haiti","Jamaica","Barbados","Nicaragua"]
     }
 }
-
-#Obs! Ta inte ovan som en geografisk sanning, det fattas många länder
 ```
 
 
+
+
+# Aritmetiska operationer (räkneroperationer)
+
+ Python har bland annat dessa räkneoperationer som operatorer (enkla symboler)
+ 
+```
+ +  addition 
+ -  subtraktion
+ *  multiplikation
+ /  division
+ %  resten av division
+ ** vänster sida upphöjt till höger sida
+ // höger-sida-roten av vänster sida
+```
+ Ex.
 ```python
-#Aritmetiska operationer (räkneroperationer)
-
-#Python har bland annat dessa räkneoperationer som operatorer (enkla symboler)
-# +  addition 
-# -  subtraktion
-# *  multiplikation
-# /  division
-# %  resten av division
-# ** vänster sida upphöjt till höger sida
-# // höger-sida-roten av vänster sida
-
-#Ex.
-
 1+1 #== 2
 
 1-1 #== 0
