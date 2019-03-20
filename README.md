@@ -184,7 +184,7 @@ ställen={
 
 2**3 #== 8 (2^3)
 
-8//3 #== 2 (tredje roten av 8)
+8//3 #== 2 (heltalsdivision, 3 ryms 2 gånger i 8)
 ```
 
 
